@@ -7,13 +7,21 @@ namespace ASPNETIdentity.Identity
     {
         public IdentityRole()
         {
-            IdentityRoleClaims = new List<IdentityRoleClaim>();
+            Claims = new List<IdentityRoleClaim>();
+        }
+        public IdentityRole(string roleName) : this()
+        {
+            Name = roleName;
         }
         public int Id { get; set; }
 
         public string Name { get; set ; }
 
-        public ICollection<IdentityRoleClaim> IdentityRoleClaims { get; set; }
+        public string NormalizedName { get; set; }
+
+        public ICollection<IdentityUser> Users { get; set; }
+
+        public ICollection<IdentityRoleClaim> Claims { get; set; }
 
     }
 }

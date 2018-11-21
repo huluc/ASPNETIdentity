@@ -1,0 +1,34 @@
+﻿@model ASPNETIdentity.ViewModels.UserIndexViewModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="table-container table-responsive">
+    <table class="table table-striped license-table">
+        <thead>
+            <tr>
+                <th>Full Name</th>
+                <th>Email</th>
+                <th>Role</th>
+                <th>State</th>              
+                <th class="last-cell"></th>
+                <th class="last-cell"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Items)
+            {
+                <tr>
+                    <td>@item.FullName</td>
+                    <td>@item.Email</td>                  
+                    <td>@item.Role</td>
+                    <td>@(item.IsActive ? "Active" : "Passive")</td>
+                    <td><a href="@Url.Action("Update", new { userId = item.UserId })" class="table-link">تعديل</a></td>
+                    <td><a href="#" data-value="@item.UserId" class="table-link btn-detail">تفاصيل</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+

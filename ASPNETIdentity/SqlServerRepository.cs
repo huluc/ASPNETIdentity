@@ -23,5 +23,14 @@ namespace ASPNETIdentity
                 return db.Set<TEntity>().SingleOrDefault(filter);
             }
         }
+        public List<TEntity> GetAll<TEntity>(Expression<Func<TEntity, bool>> filter=null) where TEntity : class, new()
+        {
+            using (MyDbContext db = new MyDbContext())
+            {
+                return filter == null ?
+                   db.Set<TEntity>().ToList() :
+                   db.Set<TEntity>().Where(filter).ToList();               
+            }
+        }
     }
 }
