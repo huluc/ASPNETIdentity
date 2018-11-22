@@ -191,6 +191,7 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="App_Start\UserConfig.cs" />
     <Compile Include="BusinessRule.cs" />
     <Compile Include="BusinessRules.cs" />
     <Compile Include="Components\RolesAttribute.cs" />
@@ -211,6 +212,7 @@
     <Compile Include="Identity\IdentityUserLogin.cs" />
     <Compile Include="Identity\IdentityUserRepository.cs" />
     <Compile Include="Identity\IIdentityUserRepository.cs" />
+    <Compile Include="Identity\RoleNames.cs" />
     <Compile Include="Migrations\201811191343165_x1.cs" />
     <Compile Include="Migrations\201811191343165_x1.Designer.cs">
       <DependentUpon>201811191343165_x1.cs</DependentUpon>
@@ -218,6 +220,10 @@
     <Compile Include="Migrations\201811200637265_addedLockoutFieldsToUserTable.cs" />
     <Compile Include="Migrations\201811200637265_addedLockoutFieldsToUserTable.Designer.cs">
       <DependentUpon>201811200637265_addedLockoutFieldsToUserTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811211322333_x3.cs" />
+    <Compile Include="Migrations\201811211322333_x3.Designer.cs">
+      <DependentUpon>201811211322333_x3.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -230,6 +236,7 @@
     <Compile Include="Services\UserService.cs" />
     <Compile Include="SqlServerRepository.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="TaskUtil.cs" />
     <Compile Include="ViewModels\UserIndexViewModel.cs" />
     <Compile Include="ViewModels\UserViewModel.cs" />
   </ItemGroup>
@@ -316,6 +323,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201811200637265_addedLockoutFieldsToUserTable.resx">
       <DependentUpon>201811200637265_addedLockoutFieldsToUserTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811211322333_x3.resx">
+      <DependentUpon>201811211322333_x3.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

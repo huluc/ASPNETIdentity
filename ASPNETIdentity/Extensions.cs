@@ -12,7 +12,7 @@ namespace ASPNETIdentity
     {
         public static User GetCurrentUser()
         {
-            return UserService.FindByName(Thread.CurrentPrincipal.Identity.Name);
+            return UserService.Obj.FindByName(Thread.CurrentPrincipal.Identity.Name);
         }
         private static  SqlServerRepository queryRepository= new SqlServerRepository();
         public static bool IsUsedEmail(this User user)

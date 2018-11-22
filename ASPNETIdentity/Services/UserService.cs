@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
+
 namespace ASPNETIdentity.Services
 {
     // Configure the application user manager used in this application. UserManager is defined in ASP.NET Identity and is used by the application.
@@ -45,11 +46,11 @@ namespace ASPNETIdentity.Services
             // Configure validation logic for passwords
             manager.PasswordValidator = new PasswordValidator
             {
-                RequiredLength = 6,
-                RequireNonLetterOrDigit = true,
-                RequireDigit = true,
-                RequireLowercase = true,
-                RequireUppercase = true,
+                RequiredLength = 4,
+                RequireNonLetterOrDigit = false,
+                RequireDigit = false,
+                RequireLowercase = false,
+                RequireUppercase = false,
             };
 
             // Configure user lockout defaults
@@ -87,11 +88,21 @@ namespace ASPNETIdentity.Services
                 throw new ArgumentNullException(nameof(password), "must not be null.");
             if (user.IsUsedEmail())
                 throw new BusinessRuleException(nameof(user), BusinessRules.UsedEmail);
-
-            CreateAsync(user, password);
-            var userResult = _identityUserRepository.FindByNameAsync(user.UserName);
+            // https://stackoverflow.com/questions/45725544/usermanager-createasync-success-always-returns-false
+            IdentityResult result = TaskUtil.Await(() => CreateAsync(user, password));//Burada kullanıcı rolü rol tablosuna farklı bir id ile tekrar ekleniyor!!!
+            if (result.Succeeded)
+            {
+                var userResult = _identityUserRepository.FindByNameAsync(user.UserName);
+                
+            }
+            else
+            {
+                var errors = result.Errors;
+                var message = string.Join(", ", errors);              
+            }
+          
         }
-        public static User FindByName(string userName)
+        public User FindByName(string userName)
         {
             if (string.IsNullOrEmpty(userName))
                 throw new ArgumentNullException(nameof(userName), "must not be null or empty.");

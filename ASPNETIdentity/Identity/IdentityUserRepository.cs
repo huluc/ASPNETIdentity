@@ -371,6 +371,7 @@ namespace ASPNETIdentity.Identity
         //}
 
         //#endregion
+        #region X
         //#region IUserRoleStore
 
         //public Task AddToRoleAsync(User user, string roleName)
@@ -400,10 +401,8 @@ namespace ASPNETIdentity.Identity
         //#region IUserRoleStore core
 
         //public void AddToRole(User user, string roleName)
-        //{
-        //    var roleConstraints = new QueryConstraints<IdentityRole>()
-        //        .Where(r => r.Name == roleName);
-        //    var roleEntity = queryRepository.SingleOrDefault<IdentityRole>(roleConstraints);
+        //{            
+        //    var roleEntity = repository.Get<IdentityRole>(x => x.Name == roleName);
         //    user.Roles.Add(roleEntity);
         //}
 
@@ -425,5 +424,6 @@ namespace ASPNETIdentity.Identity
 
         //#endregion
 
+        #endregion
     }
 }

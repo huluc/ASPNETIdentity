@@ -239,3 +239,4 @@ C:\MyProjects\ASPNETIdentity\ASPNETIdentity\obj\Debug\ASPNETIdentity.csproj.Copy
 C:\MyProjects\ASPNETIdentity\ASPNETIdentity\obj\Debug\ASPNETIdentity.Migrations.x1.resources
 C:\MyProjects\ASPNETIdentity\ASPNETIdentity\obj\Debug\ASPNETIdentity.csproj.GenerateResource.cache
 C:\MyProjects\ASPNETIdentity\ASPNETIdentity\obj\Debug\ASPNETIdentity.Migrations.addedLockoutFieldsToUserTable.resources
+C:\MyProjects\ASPNETIdentity\ASPNETIdentity\obj\Debug\ASPNETIdentity.Migrations.x3.resources

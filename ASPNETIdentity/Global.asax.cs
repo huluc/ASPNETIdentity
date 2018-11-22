@@ -16,6 +16,11 @@ namespace ASPNETIdentity
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+            UserConfig.RegisterUsers();
+        }
+        protected void Application_BeginRequest()
+        {
+
         }
     }
 }
