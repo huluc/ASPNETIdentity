@@ -7,13 +7,13 @@ namespace ASPNETIdentity.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class x1 : IMigrationMetadata
+    public sealed partial class ReallyAnotherMigration : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(x1));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(ReallyAnotherMigration));
         
         string IMigrationMetadata.Id
         {
-            get { return "201811191343165_x1"; }
+            get { return "201811240959266_ReallyAnotherMigration"; }
         }
         
         string IMigrationMetadata.Source

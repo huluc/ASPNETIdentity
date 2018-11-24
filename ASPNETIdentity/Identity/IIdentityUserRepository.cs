@@ -13,7 +13,7 @@ namespace ASPNETIdentity.Identity
          , IUserLockoutStore<User, int>
     //,IUserEmailStore<User, int>
     , IUserTwoFactorStore<User, int>
-    //, IUserRoleStore<User, int>
+    , IUserRoleStore<User, int>
     //,IUserTokenProvider<User, int>
     //IUserLoginStore<User, int>
     {

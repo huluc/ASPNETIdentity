@@ -8,20 +8,21 @@ namespace ASPNETIdentity.Identity
         public IdentityRole()
         {
             Claims = new List<IdentityRoleClaim>();
+            Users = new List<IdentityUser>();
         }
         public IdentityRole(string roleName) : this()
         {
             Name = roleName;
         }
-        public int Id { get; set; }
+        public virtual int Id { get; set; }
 
-        public string Name { get; set ; }
+        public virtual string Name { get; set ; }
 
-        public string NormalizedName { get; set; }
+        public virtual string NormalizedName { get; set; }
 
-        public ICollection<IdentityUser> Users { get; set; }
+        public virtual List<IdentityUser> Users { get; set; }
 
-        public ICollection<IdentityRoleClaim> Claims { get; set; }
+        public virtual ICollection<IdentityRoleClaim> Claims { get; set; }
 
     }
 }

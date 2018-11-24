@@ -7,8 +7,9 @@ using Microsoft.Owin;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
-
+using System.Web.Security;
 
 namespace ASPNETIdentity.Services
 {
@@ -88,19 +89,20 @@ namespace ASPNETIdentity.Services
                 throw new ArgumentNullException(nameof(password), "must not be null.");
             if (user.IsUsedEmail())
                 throw new BusinessRuleException(nameof(user), BusinessRules.UsedEmail);
+
             // https://stackoverflow.com/questions/45725544/usermanager-createasync-success-always-returns-false
-            IdentityResult result = TaskUtil.Await(() => CreateAsync(user, password));//Burada kullanıcı rolü rol tablosuna farklı bir id ile tekrar ekleniyor!!!
-            if (result.Succeeded)
+
+            Task<IdentityResult> result = CreateAsync(user, password);      //Burada kullanıcı rolü rol tablosuna farklı bir id ile tekrar ekleniyor!!!
+            if (result.Result.Succeeded)
             {
                 var userResult = _identityUserRepository.FindByNameAsync(user.UserName);
-                
             }
             else
             {
-                var errors = result.Errors;
-                var message = string.Join(", ", errors);              
+                var errors = result.Result.Errors;
+                var message = string.Join(", ", errors);
             }
-          
+
         }
         public User FindByName(string userName)
         {
@@ -112,5 +114,13 @@ namespace ASPNETIdentity.Services
         {
             return _serverRepository.GetAll<User>();
         }
+        public IList<string> GetRoles(User user)
+        {
+            if (user == null)
+                throw new ArgumentNullException(nameof(user));
+
+            return user.Roles.Select(r => r.Name).ToList();
+        }
+
     }
 }

@@ -12,7 +12,7 @@ namespace ASPNETIdentity
     {
         public MyDbContext():base("Name=ConStr")
         {
-
+            base.Configuration.ProxyCreationEnabled = false;
         }
         public DbSet<IdentityUser> Users { get; set; }
         public DbSet<IdentityRole> Roles { get; set; }

@@ -46,19 +46,24 @@ namespace ASPNETIdentity.Identity
 
         public Task UpdateAsync(User user)
         {
-            throw new NotImplementedException();
+            return Task.FromResult(Update(user));
         }
         #endregion
 
         #region IUserStore (Core)
         private int Create(User user)
-        {
+        {        
             return repository.Create<User>(user);
         }
         private User FindByName(string userName)
         {
             return repository.Get<User>(x => x.UserName == userName);
         }
+        public int Update(User user)
+        {
+            return repository.Update<User>(user);
+        }
+
         #endregion
         #region IUserPasswordStore
         public Task<string> GetPasswordHashAsync(User user)
@@ -372,57 +377,59 @@ namespace ASPNETIdentity.Identity
 
         //#endregion
         #region X
-        //#region IUserRoleStore
+        #region IUserRoleStore
 
-        //public Task AddToRoleAsync(User user, string roleName)
-        //{
-        //    AddToRole(user, roleName);
-        //    return Task.FromResult(0);
-        //}
+        public Task AddToRoleAsync(User user, string roleName)
+        {
+            AddToRole(user, roleName);
+            return Task.FromResult(0);
+        }
 
-        //public Task<IList<string>> GetRolesAsync(User user)
-        //{
-        //    return Task.FromResult(GetRoles(user));
-        //}
+        public Task<IList<string>> GetRolesAsync(User user)
+        {
+            return Task.FromResult(GetRoles(user));
+        }
 
-        //public Task<bool> IsInRoleAsync(User user, string roleName)
-        //{
-        //    return Task.FromResult(IsInRole(user, roleName));
-        //}
+        public Task<bool> IsInRoleAsync(User user, string roleName)
+        {
+            return Task.FromResult(IsInRole(user, roleName));
+        }
 
-        //public Task RemoveFromRoleAsync(User user, string roleName)
-        //{
-        //    RemoveFromRole(user, roleName);
-        //    return Task.FromResult(0);
-        //}
+        public Task RemoveFromRoleAsync(User user, string roleName)
+        {
+            RemoveFromRole(user, roleName);
+            return Task.FromResult(0);
+        }
 
-        //#endregion
+        #endregion
 
-        //#region IUserRoleStore core
+        #region IUserRoleStore core
 
-        //public void AddToRole(User user, string roleName)
-        //{            
-        //    var roleEntity = repository.Get<IdentityRole>(x => x.Name == roleName);
-        //    user.Roles.Add(roleEntity);
-        //}
+        public void AddToRole(User user, string roleName)
+        {
+            var roleEntity = repository.Get<IdentityRole>(x => x.Name == roleName);
+            user.Roles.Add(roleEntity);        
+            repository.Update(user);
+            
+        }
 
-        //public IList<string> GetRoles(User user)
-        //{
-        //    return user.Roles.Select(r => r.Name).ToList();
-        //}
+        public IList<string> GetRoles(User user)
+        {
+            return user.Roles.Select(r => r.Name).ToList();
+        }
 
-        //public bool IsInRole(User user, string roleName)
-        //{
-        //    return user.Roles.Any(r => r.Name == roleName);
-        //}
+        public bool IsInRole(User user, string roleName)
+        {
+            return user.Roles.Any(r => r.Name == roleName);
+        }
 
-        //public void RemoveFromRole(User user, string roleName)
-        //{
-        //    var role = user.Roles.FirstOrDefault(r => r.Name == roleName);
-        //    if (role != null) user.Roles.Remove(role);
-        //}
+        public void RemoveFromRole(User user, string roleName)
+        {
+            var role = user.Roles.FirstOrDefault(r => r.Name == roleName);
+            if (role != null) user.Roles.Remove(role);
+        }
 
-        //#endregion
+        #endregion
 
         #endregion
     }

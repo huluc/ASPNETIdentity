@@ -29,12 +29,38 @@ namespace ASPNETIdentity.Components
                 }
             }
         }
+        protected override void HandleUnauthorizedRequest(AuthorizationContext context)
+        {
+            var urlHelper = new UrlHelper(context.RequestContext);
+            string urlLogin = urlHelper.Action("Login", "Account");
+
+            if (context.RequestContext.HttpContext.Request.IsAjaxRequest())
+            {
+                context.HttpContext.Response.StatusCode = (int)System.Net.HttpStatusCode.Unauthorized;
+                context.Result = new JsonResult
+                {
+                    Data = urlLogin,
+                    JsonRequestBehavior = JsonRequestBehavior.AllowGet
+                };
+            }
+            else
+            {
+                context.Result = new RedirectResult(urlLogin);
+            }
+        }
     }
 
     public class AllowAdminAttribute : RolesAttribute
     {
         public AllowAdminAttribute()
             : base(RoleNames.Admin)
+        {
+        }
+    }
+    public class AllowUserAttribute : RolesAttribute
+    {
+        public AllowUserAttribute()
+            :base(RoleNames.User)
         {
         }
     }

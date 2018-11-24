@@ -23,7 +23,12 @@ namespace ASPNETIdentity.Security
             this.FullName = fullName;
             this.Email = email;
         }
-        public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<User,int> manager )
+        public User UpdateRoles(List<IdentityRole> newRoles)
+        {
+            this.Roles = newRoles;
+            return this;
+        }
+        public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<User, int> manager)
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
             ClaimsIdentity userIdentity = await manager.CreateIdentityAsync(this, DefaultAuthenticationTypes.ApplicationCookie);
@@ -34,12 +39,6 @@ namespace ASPNETIdentity.Security
             //userIdentity.AddClaim(new Claim("UserName", this.UserName ?? ""));
             userIdentity.AddClaim(new Claim("IsActive", this.IsActive.ToString()));
             return userIdentity;
-        }
-
-        public User UpdateRoles(List<IdentityRole> newRoles)
-        {
-            this.Roles = newRoles;
-            return this;
         }
 
         public bool IsActive { get; set; }
@@ -57,7 +56,7 @@ namespace ASPNETIdentity.Security
         public DateTime UpdatedAt { get; set; }
 
         public User UpdatedBy { get; set; }
-   
+
         public string PasswordHash { get; set; }
         /// <summary>
         /// DateTime in UTC when lockout ends, any time in the past is considered not locked out.

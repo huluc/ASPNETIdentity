@@ -7,13 +7,13 @@ namespace ASPNETIdentity.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class addedLockoutFieldsToUserTable : IMigrationMetadata
+    public sealed partial class SomeMigration : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(addedLockoutFieldsToUserTable));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(SomeMigration));
         
         string IMigrationMetadata.Id
         {
-            get { return "201811200637265_addedLockoutFieldsToUserTable"; }
+            get { return "201811240915381_SomeMigration"; }
         }
         
         string IMigrationMetadata.Source

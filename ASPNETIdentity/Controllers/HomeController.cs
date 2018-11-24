@@ -20,7 +20,7 @@ namespace ASPNETIdentity.Controllers
 
             return View();
         }
-
+        [AllowUser]
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";

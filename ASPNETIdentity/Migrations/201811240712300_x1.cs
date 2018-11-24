@@ -43,6 +43,9 @@ namespace ASPNETIdentity.Migrations
                         IsActive = c.Boolean(),
                         FullName = c.String(),
                         PasswordHash = c.String(),
+                        LockoutEnd = c.DateTimeOffset(precision: 7),
+                        LockoutEnabled = c.Boolean(),
+                        AccessFailedCount = c.Int(),
                         Discriminator = c.String(nullable: false, maxLength: 128),
                     })
                 .PrimaryKey(t => t.Id);

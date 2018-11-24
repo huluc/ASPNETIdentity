@@ -118,10 +118,6 @@ C:\Users\Swazer\source\repos\ASPNETIdentity\ASPNETIdentity\obj\Debug\ASPNETIdent
 C:\Users\Swazer\source\repos\ASPNETIdentity\ASPNETIdentity\obj\Debug\ASPNETIdentity.csproj.CopyComplete
 C:\Users\Swazer\source\repos\ASPNETIdentity\ASPNETIdentity\obj\Debug\ASPNETIdentity.dll
 C:\Users\Swazer\source\repos\ASPNETIdentity\ASPNETIdentity\obj\Debug\ASPNETIdentity.pdb
-C:\MyProjects\ASPNETIdentity\ASPNETIdentity\obj\Debug\ASPNETIdentity.csprojAssemblyReference.cache
-C:\MyProjects\ASPNETIdentity\ASPNETIdentity\obj\Debug\ASPNETIdentity.csproj.CoreCompileInputs.cache
-C:\MyProjects\ASPNETIdentity\ASPNETIdentity\obj\Debug\ASPNETIdentity.dll
-C:\MyProjects\ASPNETIdentity\ASPNETIdentity\obj\Debug\ASPNETIdentity.pdb
 C:\MyProjects\ASPNETIdentity\ASPNETIdentity\bin\ApplicationInsights.config
 C:\MyProjects\ASPNETIdentity\ASPNETIdentity\bin\ASPNETIdentity.dll.config
 C:\MyProjects\ASPNETIdentity\ASPNETIdentity\bin\ASPNETIdentity.dll
@@ -235,8 +231,13 @@ C:\MyProjects\ASPNETIdentity\ASPNETIdentity\bin\Microsoft.AI.DependencyCollector
 C:\MyProjects\ASPNETIdentity\ASPNETIdentity\bin\Microsoft.AI.WindowsServer.xml
 C:\MyProjects\ASPNETIdentity\ASPNETIdentity\bin\Microsoft.AI.Web.xml
 C:\MyProjects\ASPNETIdentity\ASPNETIdentity\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\MyProjects\ASPNETIdentity\ASPNETIdentity\obj\Debug\ASPNETIdentity.csproj.CoreCompileInputs.cache
 C:\MyProjects\ASPNETIdentity\ASPNETIdentity\obj\Debug\ASPNETIdentity.csproj.CopyComplete
+C:\MyProjects\ASPNETIdentity\ASPNETIdentity\obj\Debug\ASPNETIdentity.dll
+C:\MyProjects\ASPNETIdentity\ASPNETIdentity\obj\Debug\ASPNETIdentity.pdb
+C:\MyProjects\ASPNETIdentity\ASPNETIdentity\obj\Debug\ASPNETIdentity.csprojAssemblyReference.cache
 C:\MyProjects\ASPNETIdentity\ASPNETIdentity\obj\Debug\ASPNETIdentity.Migrations.x1.resources
 C:\MyProjects\ASPNETIdentity\ASPNETIdentity\obj\Debug\ASPNETIdentity.csproj.GenerateResource.cache
-C:\MyProjects\ASPNETIdentity\ASPNETIdentity\obj\Debug\ASPNETIdentity.Migrations.addedLockoutFieldsToUserTable.resources
-C:\MyProjects\ASPNETIdentity\ASPNETIdentity\obj\Debug\ASPNETIdentity.Migrations.x3.resources
+C:\MyProjects\ASPNETIdentity\ASPNETIdentity\obj\Debug\ASPNETIdentity.Migrations.SomeMigration.resources
+C:\MyProjects\ASPNETIdentity\ASPNETIdentity\obj\Debug\ASPNETIdentity.Migrations.AnotherMigration.resources
+C:\MyProjects\ASPNETIdentity\ASPNETIdentity\obj\Debug\ASPNETIdentity.Migrations.ReallyAnotherMigration.resources
